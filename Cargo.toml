@@ -1,0 +1,22 @@
+[package]
+name = "keysstore"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "3.2.8", features = ["derive"] }
+aes="0.7.5"
+hex="0.4.3"
+block-modes="0.8.1"
+hex-literal="0.3.3"
+
+aes-prng = "0.1"
+rand="0.8.3"
+
+pwhash = "1"
+
+base64="0.13.0"
+rust-crypto="0.2.36"
+bytes="1.1.0"
