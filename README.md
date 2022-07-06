@@ -6,10 +6,10 @@ Daniele Iorio     M63001112
 
 keysstore App for Software Security Exam 
 
-USAGE:
+USAGE:\n
     keysstore.exe [OPTIONS] --cmd <CMD> --pw <PW>
 
-OPTIONS:
+OPTIONS:\n
     -c, --cmd <CMD>          Specifica il comando da eseguire sul keystore
                              new    : crea nuovo keystore [new <password>]
                              add    : aggiunge un nuovo segreto [add <password> <chiave>
