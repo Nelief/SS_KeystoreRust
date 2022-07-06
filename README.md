@@ -1,6 +1,8 @@
 # ss_project
 ```
 keysstore App for Software Security Exam 
+University Federico II of Naples
+
 Mauro malafronte  M63001104
 Daniele Iorio     M63001112
 
