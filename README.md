@@ -1,5 +1,5 @@
 # ss_project
-```
+
 Mauro malafronte  M63001104
 Daniele Iorio     M63001112
 ```
@@ -18,4 +18,4 @@ OPTIONS:
     -k, --key <KEY>          ID/riferimento per il segreto[necessario per comando "Add"]
     -p, --pw <PW>            Password di accesso al keystore
     -s, --secret <SECRET>    Descrizione Segreto[necessario per comando "Add"]
-```
+
