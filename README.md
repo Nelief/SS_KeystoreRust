@@ -4,8 +4,10 @@ Mauro malafronte  M63001104
 Daniele Iorio     M63001112
 keysstore App for Software Security Exam 
 ```
+```
 USAGE:
     keysstore.exe --cmd <CMD> --pw <PW>
+```
 ```
 OPTIONS:
     -c, --cmd <CMD>          Specifica il comando da eseguire sul keystore
