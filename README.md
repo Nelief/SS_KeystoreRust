@@ -8,7 +8,7 @@ keysstore App for Software Security Exam
 ```
 USAGE:
     keysstore.exe --cmd <CMD> --pw <PW>
-```
+    
 OPTIONS:
     -c, --cmd <CMD>          Specifica il comando da eseguire sul keystore
                              new    : crea nuovo keystore [new <password>]
