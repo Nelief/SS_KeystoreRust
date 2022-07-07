@@ -53,7 +53,7 @@ fn main() -> Result<(), Error> {
                 if  input_password.len() > 7 {
                     make_keychain_cofing(input_password, PATH, CPATH);
                 } else {
-                    println!("Error: password troppo corta ( 8 char min)!");
+                    println!("Error: password troppo corta ( 8 char min )!");
                 }
             }
         }
