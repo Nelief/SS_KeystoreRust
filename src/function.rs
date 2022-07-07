@@ -114,7 +114,7 @@ pub fn print_secret(path : &str, secret : String, key : [u8;16]){
 ///Input : String : master password per l' accesso al keystore , &str : Path al file dei segreti , &str : Path al file di configurazione
 /// 
 ///la fn genera la hash della password ricevuta chiamando bycrypt.hash() e procede a inizializzare e creare 2 file nascosti (FILE_ATTRIBUTE_HIDDEN di windows), termina scrivendo la hash sul file di configurazione 
-pub fn make_keychain_cofing(password : String, file_path: &str, config_path: &str){
+pub fn make_keystore_cofing(password : String, file_path: &str, config_path: &str){
     println!("creazione nuovo keystore");
     //estrarre variabili arg
     let password = password.as_str();
@@ -144,7 +144,7 @@ pub fn make_keychain_cofing(password : String, file_path: &str, config_path: &st
 pub fn get_password () -> String{
 
     //richiesta pw 
-    print!("Inserire password master  >> ");
+    print!("Inserire password master >> ");
     let _ = io::stdout().flush();
 
     //password from stdinput

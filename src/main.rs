@@ -43,6 +43,7 @@ static CPATH : &str = "cfg.txt";
 fn main() -> Result<(), Error> {
     let args = Args::parse();
 
+    
     let input_password = get_password();
    
     match args.cmd {
@@ -51,7 +52,7 @@ fn main() -> Result<(), Error> {
                 println!("keystore già esistente!");
             }else{
                 if  input_password.len() > 7 {
-                    make_keychain_cofing(input_password, PATH, CPATH);
+                    make_keystore_cofing(input_password, PATH, CPATH);
                 } else {
                     println!("Error: password troppo corta ( 8 char min )!");
                 }
