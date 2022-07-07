@@ -142,8 +142,9 @@ pub fn make_keychain_cofing(password : String, file_path: &str, config_path: &st
 
 ///stampa e richiede la password master da stdin
 pub fn get_password () -> String{
+
     //richiesta pw 
-    print!("Inserire password master >> ");
+    print!("Inserire password master  >> ");
     let _ = io::stdout().flush();
 
     //password from stdinput
