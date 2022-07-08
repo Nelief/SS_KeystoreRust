@@ -32,7 +32,7 @@ struct Args {
     #[clap(long,short = 's',value_parser,required_if_eq("cmd","add"),default_value="",help =r#"Descrizione Segreto[necessario per comando "Add"]"#,hide_default_value(true))]
     secret : String, 
 
-    #[clap(long,short = 'q',value_parser,required_if_eq("cmd","search"),default_value="",help =r#"Chiave di ricerca [necessaria per comando "Search"]"#,hide_default_value(true))]
+    #[clap(long,short = 'q',value_parser,required_if_eq_any(&[("cmd","search"),("cmd","delete")]),default_value="",help =r#"Chiave di ricerca [necessaria per comando "Search"]"#,hide_default_value(true))]
     query_key : String, 
 }
 
