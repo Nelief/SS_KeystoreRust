@@ -284,7 +284,9 @@ pub fn list_secrets(password : &str, path : &str){
                     process_secret(line, key);
                 }
             }     
-            Err(e) => println!("Errorr : {}",e),
+            Err(e) => {
+                println!("Errorr : {}",e)
+            }
         } 
     }
 }
