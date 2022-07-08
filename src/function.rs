@@ -162,10 +162,7 @@ pub fn to_map(secret_map: & mut HashMap<String, String>, line : String, key : [u
     let text = str::from_utf8(decrypted_text).unwrap().to_owned();
 
     let v : Vec<&str> = text.split('|').collect();
-    let key = v[0].clone().to_owned();
-    let secret = v[1].clone().to_owned();
-
-    secret_map.insert(key.clone().to_owned(),secret.clone().to_owned());
+    secret_map.insert(v[0].to_owned(),v[1].to_owned());
 }
 
 ///rigenera un nuovo keystore per l' update 
