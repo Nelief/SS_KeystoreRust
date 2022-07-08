@@ -16,6 +16,7 @@ use std::fs::{File};
 
 use std::os::windows::fs::OpenOptionsExt;
 
+use rpassword;
 
 type Aes128Ecb = Ecb<Aes128, Pkcs7>;
 
@@ -147,9 +148,7 @@ pub fn get_password () -> String{
     print!("Inserire password master >> ");
     let _ = io::stdout().flush();
 
-    //password from stdinput
-    let in_reader = BufReader::new(io::stdin());
-    in_reader.lines().next().unwrap().unwrap()
+    rpassword::read_password().unwrap()
 }
 
 ///Estrae il segreto da "line", lo decritta, ed inserisce nella hashmap
