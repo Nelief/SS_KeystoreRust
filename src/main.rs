@@ -45,7 +45,7 @@ fn main() -> Result<(), Error> {
 
     
     let input_password = get_password();
-   
+
     match args.cmd {
         Cmd::New => {
             if Path::new(PATH).exists() {

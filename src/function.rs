@@ -18,6 +18,8 @@ use std::os::windows::fs::OpenOptionsExt;
 
 use rpassword;
 
+use regex::Regex;
+
 type Aes128Ecb = Ecb<Aes128, Pkcs7>;
 
 static HIDDEN_FILE : u32 = 2;
@@ -180,12 +182,19 @@ pub fn reset_secret(path : &str){
 pub fn search_key(query_key : String, path : &str, password : &str){
     let  secret_map = generate_hashmap(password, path);
     
-    if secret_map.contains_key(&query_key) {
-        let (hkey,hval) = secret_map.get_key_value(&query_key).unwrap();
-        print!("chiave : {} | Segreto : {}" ,hkey,hval);
-    } else {
-        println!("Chiave non trovata!");
-    }  
+    let regex = make_regex(query_key);
+    let mut found : bool = false;
+    for k in secret_map.keys(){
+        if regex.is_match(k){
+            let (hkey,hval) = secret_map.get_key_value(k).unwrap();
+            println!("{} | {}" ,hkey,hval);
+            found = true;
+        }
+    }
+
+    if !found {
+        println!("Match assenti\n");
+    } 
 }
 
 
@@ -286,4 +295,13 @@ pub fn list_secrets(password : &str, path : &str){
             }
         } 
     }
+}
+
+///riceve una stringa e genera un regex che cerca casi contenenti la stessa 
+pub fn make_regex (query : String) -> Regex{
+    let mut regex_check = "(".to_owned();
+    regex_check.push_str(&query);
+    regex_check.push_str(")");
+    let regex = Regex::new(&regex_check).unwrap();
+    regex
 }
