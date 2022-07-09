@@ -9,7 +9,7 @@ Daniele Iorio     M63001112
 ```
 ```
 USAGE:
-    keysstore.exe --cmd <CMD> --pw <PW>
+    keysstore.exe --cmd <CMD> 
 ```
 ```
 OPTIONS:
