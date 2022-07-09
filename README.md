@@ -20,7 +20,7 @@ OPTIONS:
                                    list   : mostra segreti [list <password>]
                                    reset  : resetta keystore [reset <password>] NON REVERSIBILE
                                    search    : visualizza i segreti che matchano il pattern [search
-                                   <pattern>]
+                                   <query-key>]
                                    delete    : elimina il segreto indicato dalla chiave [delete
                                    <chiave>]
     -h, --help                     Print help information
