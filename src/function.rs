@@ -118,7 +118,7 @@ pub fn print_secret(path : &str, secret : String, key : [u8;16]){
 /// 
 ///la fn genera la hash della password ricevuta chiamando bycrypt.hash() e procede a inizializzare e creare 2 file nascosti (FILE_ATTRIBUTE_HIDDEN di windows), termina scrivendo la hash sul file di configurazione 
 pub fn make_keystore_cofing(password : String, file_path: &str, config_path: &str){
-    println!("creazione nuovo keystore");
+    println!("Creazione nuovo keystore...");
     //estrarre variabili arg
     let password = password.as_str();
     let pw_hash = hash(password).unwrap();
@@ -225,9 +225,9 @@ pub fn delete_keypair(password : &str, query_key : String, path : &str){
             
         }
        
-       print!("Chiave rimossa con successo!");
+       print!("Chiave rimossa con successo!\n");
     } else {
-        println!("Chiave non trovata!")
+        println!("Chiave non trovata!\n")
     }
 }
 
@@ -246,7 +246,7 @@ pub fn generate_hashmap(password : &str, path : &str) -> HashMap<String,String>{
                     to_map(&mut secret_map, line, key);   
                 }
             }     
-            Err(e) => println!("Errorr : {}",e),
+            Err(e) => println!("Errorr : {}\n",e),
         }        
     }
     secret_map
@@ -260,9 +260,9 @@ pub fn add_secret(password: &str, key : String , secret : String,path : &str){
     if secret_name.len() <=20 && secret_value.len() <=100{
         let secret = make_secret_line(secret_name, secret_value);
         print_secret(path, secret, ckey);
-        print!("Segreto inserito nel portachiavi!");
+        print!("Segreto inserito nel portachiavi!\n");
     }else{
-        println!("Error: chiave o segreto troppo lunghi (20/100 char limit)!");
+        println!("Error: chiave o segreto troppo lunghi (20/100 char limit)!\n");
     }
 }
 
@@ -291,7 +291,7 @@ pub fn list_secrets(password : &str, path : &str){
                 }
             }     
             Err(e) => {
-                println!("Errorr : {}",e)
+                println!("Errorr : {}\n",e)
             }
         } 
     }

@@ -49,12 +49,12 @@ fn main() -> Result<(), Error> {
     match args.cmd {
         Cmd::New => {
             if Path::new(PATH).exists() {
-                println!("keystore già esistente!");
+                println!("Keystore già esistente!\n");
             }else{
                 if  input_password.len() > 7 {
                     make_keystore_cofing(input_password, PATH, CPATH);
                 } else {
-                    println!("Error: password troppo corta ( 8 char min )!");
+                    println!("Error: password troppo corta ( 8 char min )!\n");
                 }
             }
         }
@@ -64,10 +64,10 @@ fn main() -> Result<(), Error> {
                 if verify_password_hash(password,CPATH){
                     list_secrets(password, PATH);
                 } else{
-                    println!("password errata");
+                    println!("Password errata!\n");
                 }
             }else{
-                println!(r#"keystore inesistente (inizializzare con "new")"#);
+                println!(r#"Keystore inesistente (inizializzare con "new")\n"#);
             }
         }
         Cmd::Add => {
@@ -77,13 +77,13 @@ fn main() -> Result<(), Error> {
                     if !verify_key(&args.key, PATH, password){
                         add_secret(password, args.key, args.secret, PATH);
                     }else{
-                        println!("chiave già presente!");
+                        println!("Chiave già presente!\n");
                     }
                 } else{
-                    println!("password errata");
+                    println!("Password errata!\n");
                 }
             }else{
-                println!(r#"keystore inesistente (inizializzare con "new")"#);
+                println!(r#"Keystore inesistente (inizializzare con "new")\n"#);
             }
             
         }
@@ -93,10 +93,10 @@ fn main() -> Result<(), Error> {
                 if verify_password_hash(password,CPATH){
                     remove_file(PATH)?;
                     remove_file(CPATH)?;
-                    print!("keystore cancellato con successo...");
+                    print!("Keystore cancellato con successo!\n");
                 }
             }else{
-                println!(r#"keystore inesistente (inizializzare con "new")"#);
+                println!(r#"Keystore inesistente (inizializzare con "new")\n"#);
             }
             
         }
@@ -106,10 +106,10 @@ fn main() -> Result<(), Error> {
                 if verify_password_hash(password,CPATH){
                     search_key(args.query_key, PATH, password);
                 } else{
-                    println!("password errata");
+                    println!("Password errata!\n");
                 }
             }else{
-                println!(r#"keystore inesistente (inizializzare con "new")"#);
+                println!(r#"Keystore inesistente (inizializzare con "new")\n"#);
             }
             
         } 
@@ -119,10 +119,10 @@ fn main() -> Result<(), Error> {
                 if verify_password_hash(password,CPATH){
                     delete_keypair(password, args.query_key, PATH)
                 } else{
-                    println!("password errata");
+                    println!("Password errata!\n");
                 }
             }else{
-                println!(r#"keystore inesistente (inizializzare con "new")"#);
+                println!(r#"Keystore inesistente (inizializzare con "new")\n"#);
             }
             
         }
