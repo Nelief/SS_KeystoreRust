@@ -161,7 +161,7 @@ pub fn to_map(secret_map: & mut HashMap<String, String>, line : String, key : [u
     let cipher = Aes128Ecb::new_from_slices(&key, &iv).unwrap();
     
     let decrypted_text = cipher.decrypt(&mut u8buf).unwrap();
-    let text = str::from_utf8(decrypted_text).unwrap().to_owned();
+    let text = str::from_utf8(decrypted_text).unwrap();
 
     let v : Vec<&str> = text.split('|').collect();
     secret_map.insert(v[0].to_owned(),v[1].to_owned());
@@ -199,6 +199,14 @@ pub fn search_key(query_key : String, path : &str, password : &str){
 
 
 ///cancella la keypair indicata da query_key se presente ed aggiorna il keystore
+///prima viene generata una hashmap contenente le coppie chiave-valore 
+///la chiave ricercata viene confermata con "containes_key"
+///in caso sia presente, la chiave viene rimossa 
+///per rimuovere anche la chiave criptata dal keystore 
+/// 1) le coppie rimaste nella hasahmap vengono ricompattate in chiave|segreto 
+/// 2) le stringe segreto vengono pushate in un vettore 
+/// 3) il keysstore viene resettato 
+/// 4) per ogni elemento nel vettore viene chiamato "print_secret", stampandolo criptato  
 pub fn delete_keypair(password : &str, query_key : String, path : &str){
 
     let mut secret_map =  generate_hashmap(password, path);
