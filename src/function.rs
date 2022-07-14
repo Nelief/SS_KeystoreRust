@@ -198,10 +198,10 @@ pub fn search_key(query_key : String, path : &str, password : &str){
 }
 
 
-///cancella la keypair indicata da query_key se presente ed aggiorna il keystore
+///cancella la keypair indicata da query_key se presente ed aggiorna il keystore,
 ///prima viene generata una hashmap contenente le coppie chiave-valore 
 ///la chiave ricercata viene confermata con "containes_key"
-///in caso sia presente, la chiave viene rimossa 
+///ed in caso sia presente, la chiave viene rimossa 
 ///per rimuovere anche la chiave criptata dal keystore 
 /// 1) le coppie rimaste nella hasahmap vengono ricompattate in chiave|segreto 
 /// 2) le stringe segreto vengono pushate in un vettore 
@@ -240,6 +240,8 @@ pub fn delete_keypair(password : &str, query_key : String, path : &str){
 }
 
 ///genera una hashmap a partire dal file keystore
+/// prepara il necessario per decriptare e la hashmap vuota
+/// legge riga per riga il file keystore e chiama to_map per generare la hashmap
 pub fn generate_hashmap(password : &str, path : &str) -> HashMap<String,String>{
     let key = create_crypto_key(password);
     let f = File::open(path).unwrap();
