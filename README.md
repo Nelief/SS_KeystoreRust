@@ -9,7 +9,7 @@ Daniele Iorio     M63001112
 ```
 ```
 USAGE:
-    keysstore.exe --cmd <CMD> --pw <PW>
+    keysstore.exe --cmd <CMD> 
 ```
 ```
 OPTIONS:
@@ -19,8 +19,8 @@ OPTIONS:
                                    "<segreto1> <segreto2>..." ]
                                    list   : mostra segreti [list <password>]
                                    reset  : resetta keystore [reset <password>] NON REVERSIBILE
-                                   search    : visualizza il segreto indicato dalla chiave [search
-                                   <chiave>]
+                                   search    : visualizza i segreti che matchano il pattern [search
+                                   <query-key>]
                                    delete    : elimina il segreto indicato dalla chiave [delete
                                    <chiave>]
     -h, --help                     Print help information
